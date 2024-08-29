@@ -1,17 +1,10 @@
 const express = require('express');
-const { faker } = require('@faker-js/faker')
+const routerApi = require('./routes')
 
 const app = express();
 const port = 3000;
 
-
-app.get('/', (req, res)=>{
-    res.send('Hola mi server en express');
-});
-
-app.get('/nuevaruta', (req, res)=>{
-    res.send('Hola soy una nueva ruta');
-});
+routerApi(app);
 
 app.get('/categories/:categoryId/products/:productId', (req, res)=>{
     const {categoryId, productId} = req.params;
